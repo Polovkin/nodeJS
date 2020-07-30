@@ -1,0 +1,22 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "lesson",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Polovkin/nodeJS.git"
+  },
+  "author": "Polovkin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Polovkin/nodeJS/issues"
+  },
+  "homepage": "https://github.com/Polovkin/nodeJS#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
