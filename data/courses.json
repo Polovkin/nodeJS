@@ -1,1 +1,14 @@
-[{"title":"React","price":"12000","img":"https://itea.uz/wp-content/uploads/2018/01/react-base.png","id":"7f8c5007-7949-494f-a591-c123b091d19c"},{"title":"Angular","price":"9999","img":"https://vuejs.org/images/logo.png","id":"c355745d-de16-42b7-9533-e90ff576c1fc"}]
+[
+  {
+    "title": "Angular 8",
+    "price": "12000",
+    "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/1200px-Angular_full_color_logo.svg.png",
+    "id": "8ae92db5-97f4-494c-ade8-a258d931d61e"
+  },
+  {
+    "title": "Vue JS",
+    "price": "20000",
+    "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1200px-Vue.js_Logo_2.svg.png",
+    "id": "b56de685-9bdf-4c4b-8302-80ad480732ef"
+  }
+]

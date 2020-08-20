@@ -1,22 +1,21 @@
 {
-  "name": "nodejs",
+  "name": "node-express",
   "version": "1.0.0",
-  "description": "lesson",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Polovkin/nodeJS.git"
-  },
-  "author": "Polovkin",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Polovkin/nodeJS/issues"
+  "dependencies": {
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.2",
+    "uuid": "^3.3.2"
   },
-  "homepage": "https://github.com/Polovkin/nodeJS#readme",
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "nodemon": "^1.18.11"
   }
 }
