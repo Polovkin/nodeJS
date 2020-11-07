@@ -2,14 +2,36 @@ const path = require('path')
 const fs = require('fs')
 
 const p = path.join(
-    process.mainModule.filename,
-    'data',
-    'card.json'
+        path.dirname(process.mainModule.filename),
+        'data',
+        'card.json'
 )
 
 class Card {
-    add() {
+    static async add(course) {
+        const card = await Card.fetch();
 
+        const idx = card.courses.findIndex(c => c.id === course.id);
+        const candidate = card.courses[idx];
+        if (candidate) {
+            candidate.count++
+            card.courses[idx] = candidate
+        } else {
+            //no
+            course.count = 1
+            card.courses.push(course)
+        }
+        card.price += +course.price
+
+        return new Promise((resolve, reject) => {
+            fs.writeFile(p, JSON.stringify(card), err => {
+                if (err) {
+                    reject(err)
+                } else {
+                    resolve()
+                }
+            })
+        })
     }
 
     static async fetch() {
