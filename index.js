@@ -5,7 +5,6 @@ const exphbs = require('express-handlebars')
 const homeRoutes = require('./routes/home')
 const cardRoutes = require('./routes/card')
 const addRoutes = require('./routes/add')
-const ordersRoutes = require('./routes/orders')
 const coursesRoutes = require('./routes/courses')
 const User = require('./models/user')
 
@@ -22,7 +21,7 @@ app.set('views', 'views')
 
 app.use(async (req, res, next) => {
   try {
-    const user = await User.findById('5cc1d29dcedab01481e03660')
+    const user = await User.findById('5ffa24bed6aa9336e89ebcaf')
     req.user = user
     next()
   } catch (e) {
@@ -37,7 +36,6 @@ app.use('/', homeRoutes)
 app.use('/add', addRoutes)
 app.use('/courses', coursesRoutes)
 app.use('/card', cardRoutes)
-app.use('/orders', ordersRoutes)
 
 const PORT = process.env.PORT || 3000
 
@@ -51,8 +49,8 @@ async function start() {
     const candidate = await User.findOne()
     if (!candidate) {
       const user = new User({
-        email: 'vladilen@mail.ru',
-        name: 'Vladilen',
+        email: 'mikle@mail.ru',
+        name: 'mikle',
         cart: {items: []}
       })
       await user.save()
