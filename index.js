@@ -5,6 +5,7 @@ const exphbs = require('express-handlebars')
 const homeRoutes = require('./routes/home')
 const cardRoutes = require('./routes/card')
 const addRoutes = require('./routes/add')
+const ordersRoutes = require('./routes/orders')
 const coursesRoutes = require('./routes/courses')
 const User = require('./models/user')
 
@@ -36,12 +37,13 @@ app.use('/', homeRoutes)
 app.use('/add', addRoutes)
 app.use('/courses', coursesRoutes)
 app.use('/card', cardRoutes)
+app.use('/orders', ordersRoutes)
 
 const PORT = process.env.PORT || 3000
 
 async function start() {
   try {
-    const url = `mongodb+srv://vladilen:0I5GEL9uLUcR38GC@cluster0-3rrau.mongodb.net/shop`
+    const url = `mongodb+srv://polovakin_1488:KTvv5SMazgP48ff@cluster0.kgzyb.mongodb.net/shop`
     await mongoose.connect(url, {
       useNewUrlParser: true,
       useFindAndModify: false
