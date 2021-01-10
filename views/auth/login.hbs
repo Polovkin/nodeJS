@@ -39,6 +39,8 @@
                 data-error="Введите пароль"></span>
         </div>
 
+        <input type="hidden" name="_csrf" value="{{csrf}}">
+
         <button class="btn btn-primary" type="submit">Войти</button>
       </form>
     </div>
@@ -75,7 +77,7 @@
                  type="password"
                  class="validate"
                  required>
-          <label for="rpassword">Пароль еще раз</label>
+          <label for="confirm">Пароль еще раз</label>
           <span class="helper-text"
                 data-error="Введите пароль"></span>
         </div>
@@ -86,10 +88,13 @@
                  type="text"
                  class="validate"
                  required>
-          <label for="rpassword">Ваше имя</label>
+          <label for="name">Ваше имя</label>
           <span class="helper-text"
                 data-error="Введите имя"></span>
         </div>
+
+        <input type="hidden" name="_csrf" value="{{csrf}}">
+
         <button class="btn btn-primary" type="submit">Зарегестрироваться</button>
       </form>
     </div>
