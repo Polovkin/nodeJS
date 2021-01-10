@@ -29,7 +29,7 @@ if ($card) {
   $card.addEventListener('click', event => {
     if (event.target.classList.contains('js-remove')) {
       const id = event.target.dataset.id
-      
+
       fetch('/card/remove/' + id, {
         method: 'delete'
       }).then(res => res.json())
@@ -53,6 +53,7 @@ if ($card) {
           }
         })
     }
-    
+
   })
-} 
+}
+M.Tabs.init(document.querySelectorAll('.tabs'));
