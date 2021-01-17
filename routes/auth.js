@@ -2,6 +2,14 @@ const {Router} = require('express')
 const bcrypt = require('bcryptjs')
 const User = require('../models/user')
 const router = Router()
+const nodemailer = require('nodemailer')
+const sendgrid = require('nodemailer-sendgrid-transport')
+const keys = require('../keys')
+const regEmail = require('../emails/registration')
+
+const transporter = nodemailer.createTransport(sendgrid({
+    auth: {api_key: keys.SENDGRID_API_KEY}
+}))
 
 router.get('/login', async (req, res) => {
     res.render('auth/login', {
@@ -34,11 +42,11 @@ router.post('/login', async (req, res) => {
                     res.redirect('/')
                 })
             } else {
-                req.flash('loginError','Неверный пароль')
+                req.flash('loginError', 'Неверный пароль')
                 res.redirect('/auth/login#login')
             }
         } else {
-            req.flash('loginError','Такого пользователя нету')
+            req.flash('loginError', 'Такого пользователя нету')
             res.redirect('/auth/login')
         }
     } catch (e) {
@@ -55,7 +63,7 @@ router.post('/register', async (req, res) => {
         const candidate = await User.findOne({email})
 
         if (candidate) {
-            req.flash('registerError','Пользователь с таким email уже сущетсвует')
+            req.flash('registerError', 'Пользователь с таким email уже сущетсвует')
             res.redirect('/auth/login#register')
         } else {
             const hashPassword = await bcrypt.hash(password, 10)
@@ -63,6 +71,8 @@ router.post('/register', async (req, res) => {
                 email, name, password: hashPassword, cart: {items: []}
             })
             await user.save()
+
+            await transporter.sendMail(regEmail(email))
             res.redirect('/auth/login#login')
         }
     } catch (e) {
